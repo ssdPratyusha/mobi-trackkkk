@@ -1,0 +1,189 @@
+<section class="formViewMain">
+    <div class="container-fluid">
+        <a routerLink="/" class="goToBack"><i class="fa fa-close"></i></a>
+        <div class="formViewInner">
+        <div class="row">
+            <div class="col">
+                    <div class="formViewArea">
+
+                        <div class="m-btm40">
+                            <h6 class="d-block mx-auto text-center color-theme">
+                                <img class="d-block mx-auto text-center" src="../../../assets/images/logo-02.png"
+                                    width="100" /> Sign Up</h6>
+                        </div>
+
+                        <form [formGroup]="registationForm"  autocomplete="off" (ngSubmit)="signUpSubmit()">
+                            <div class="">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput type="text" placeholder="First Name" formControlName="firstName"
+                                        class="" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                                <!-- <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                                </div> -->
+                                <mat-error>
+                                    <div class="error"
+                                      *ngIf="registationForm.get('firstName').hasError('required') && registationForm.get('firstName').touched">
+                                      First Name is required
+                                    </div>
+                                    <div class="error"
+                                      *ngIf="registationForm.get('firstName').hasError('pattern') && registationForm.get('firstName').touched">
+                                      Special characters(with space) are not allowed
+                                    </div>
+                                  </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput type="text" placeholder="Middle Name" formControlName="middleName"
+                                        class="" [ngClass]="{ 'is-invalid': submitted && f.middleName.errors }" />
+                                        <mat-error>
+                                            <div class="error"
+                                              *ngIf="registationForm.get('middleName').hasError('pattern') && registationForm.get('middleName').touched">
+                                              Special characters(with space) are not allowed
+                                            </div>
+                                          </mat-error>
+                                </mat-form-field>
+                                <!-- <div *ngIf="submitted && f.middleName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.middleName.errors.required">Middle Name is required</div>
+                                </div> -->
+                            </div>
+                            <div class="">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput type="text" placeholder="Last Name" formControlName="lastName" class=""
+                                        [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                                        <mat-error>
+                                            <div class="error"
+                                              *ngIf="registationForm.get('lastName').hasError('required') && registationForm.get('lastName').touched">
+                                              Last Name is required
+                                            </div>
+                                            <div class="error"
+                                              *ngIf="registationForm.get('lastName').hasError('pattern') && registationForm.get('lastName').touched">
+                                              Special characters(with space) are not allowed
+                                            </div>
+                                          </mat-error>
+                                </mat-form-field>
+                                <!-- <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                                </div> -->
+                            </div>
+                            <div class="">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Email" formControlName="email" class=""
+                                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+
+                                        <mat-error>
+                                            <div class="error"
+                                              *ngIf="registationForm.get('email').hasError('required') && registationForm.get('email').touched">
+                                              Email Id is required
+                                            </div>
+                                            <div class="error"
+                                              *ngIf="registationForm.get('email').hasError('pattern') && registationForm.get('email').touched">
+                                              Email must be a valid email address
+                                            </div>
+                                          </mat-error>
+
+                                </mat-form-field>
+
+                                <!-- <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.email.errors.required">Email is required</div>
+                                    <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                                </div> -->
+                            </div>
+                            <div class="">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput type="text" (keypress)="numberOnly($event)" placeholder="Mobile" formControlName="mobile"
+                                        class="" [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" minlength="10" maxlength="10"/>
+
+                                        <mat-error>
+                                            <div class="error"
+                                              *ngIf="registationForm.get('mobile').hasError('required') && registationForm.get('mobile').touched">
+                                              Mobile Number is required
+                                            </div>
+                                            <div class="error"
+                                              *ngIf="registationForm.get('mobile').hasError('minlength') && registationForm.get('mobile').touched">
+                                              Mobile Number must be 10 Number 
+                                            </div>
+                                          </mat-error>
+
+                                </mat-form-field>
+                            </div>
+                            <div class="">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput type="password" autocomplete="off"  placeholder="Password" formControlName="password"
+                                        class="" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" minlength="5" maxlength="25"/>
+
+                                        <mat-error>
+                                            <div class="error"
+                                              *ngIf="registationForm.get('password').hasError('required') && registationForm.get('password').touched">
+                                              password  is required
+                                            </div>
+                                            <div class="error"
+                                            *ngIf="registationForm.get('password').hasError('minlength') && registationForm.get('password').touched">
+                                            password must be contain 5 letters 
+                                          </div>
+                                            <div class="error"
+                                              *ngIf="registationForm.get('password').hasError('maxlength') && registationForm.get('password').touched">
+                                              password contain max 25 letters 
+                                            </div>
+                                          </mat-error>
+
+                                </mat-form-field>
+                            </div>
+                            <div class="">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput type="password"  autocomplete="off" placeholder="Confirm Password" formControlName="confirmPassword"
+                                        class="" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" minlength="5" maxlength="25"/>
+
+                                        <mat-error>
+                                            <div class="error"
+                                                *ngIf="registationForm.get('confirmPassword').hasError('required') && registationForm.get('confirmPassword').touched">
+                                                Confirm Password is required
+                                            </div>
+                                            <span class="text-danger"
+                                                *ngIf="registationForm.controls['confirmPassword'].hasError('mustMatch') && registationForm.controls['confirmPassword'].touched">
+                                                Passwords must match</span>
+                                        </mat-error>
+
+                                </mat-form-field>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit"  [disabled]='!registationForm.valid' class="btn btn-primary btn-submit btn-block" >Create
+                                    Account
+                                    <img src="../../../assets/images/fast-forward.png" class="text-right" />
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="modal" id="myModal" [style.display]="showEModal ? 'block' : 'none'">
+        <div class="modal-dialog">
+          <div class="modal-content">
+        
+            <div class="modal-header">
+              <h4 class="modal-title">Verify Email Otp</h4>
+              <button type="button" class="close" data-dismiss="modal"  (click)="hide()">&times;</button>
+            </div>
+            
+           
+            <div class="modal-body">
+            <div class="form-group">
+                      
+                    <input type="password" placeholder="Otp" class="form-control" id="pwd">
+                  </div>
+            </div>
+            
+         
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger"  (click)="hide()" data-dismiss="modal">Close</button>
+            </div>
+            
+          </div>
+        </div>
+      </div> -->
+
+</section>

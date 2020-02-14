@@ -1,0 +1,11 @@
+@import '../user-profile-styles.scss';
+
+button[disabled] {
+    cursor: not-allowed;
+}
+
+.error {
+    font-size: 11px;
+    margin-top: -16px;
+    color: red;
+}

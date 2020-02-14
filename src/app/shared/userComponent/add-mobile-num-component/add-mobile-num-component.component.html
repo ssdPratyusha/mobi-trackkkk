@@ -1,0 +1,140 @@
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="tabsContent">
+                    <div class="p-tb40">
+                        <form [formGroup]="addMobileGroup"  autocomplete="off" (ngSubmit)="addMobileSubmit()">
+                            <div class="row">
+                                <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Mobile Nick Name"
+                                            formControlName="nickName" class=""
+                                            [ngClass]="{ 'is-invalid': submitted && f.nickName.errors }">
+                                    </mat-form-field>
+                                    
+                                    <div *ngIf="submitted && f.nickName.errors" class="invalid-feedback">
+                                        <div *ngIf="submitted && f.nickName.errors?.required" class="invalid-feedback">Mobile NickName is required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Mobile Number"
+                                            formControlName="mobileNumber" class="" maxlength="10" minlength="10" (keypress)="numberOnly1($event)" 
+                                            [ngClass]="{ 'is-invalid': submitted && f.mobileNumber.errors }">
+                                    </mat-form-field>
+                                    <div *ngIf="submitted && f.mobileNumber.errors" class="invalid-feedback">
+                                        <div *ngIf="f.mobileNumber.errors?.required">Mobile Number is required
+                                        </div>
+                                        <div class="error" *ngIf="addMobileGroup.get('mobileNumber').hasError('pattern') && addMobileGroup.get('mobileNumber').touched">
+                                            Please enter valid mobile number 
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="IMEI1 Number" formControlName="imei1" minlength="15" maxlength="15"
+                                            class="" [ngClass]="{ 'is-invalid': submitted && f.imei1.errors }">
+                                    </mat-form-field>
+                                    <div *ngIf="submitted && f.imei1.errors" class="invalid-feedback">
+                                        <div *ngIf="f.imei1.errors?.required && f.imei1.errors?.minLength && f.imei1.errors?.maxLength">IMEI Number is required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="IMEI2 Number (optional)" formControlName="imei2" minlength="15" maxlength="15">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Select Mobile Model</mat-label>
+                                        <mat-select formControlName="mobileMakeId">
+                                            <mat-option *ngFor="let mobile of mobileModalsList" [value]="mobile.makeId">
+                                                {{ mobile.mobileMaker }}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <div *ngIf="submitted && f.mobileMakeId.errors" class="invalid-feedback">
+                                        <div *ngIf="f.mobileMakeId.errors?.required">Mobile Model is required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Mobile Type" formControlName="mobileType">
+                                    </mat-form-field>
+                                    <div *ngIf="submitted && f.mobileType.errors" class="invalid-feedback">
+                                        <div *ngIf="f.mobileType.errors?.required">Mobile Model Type is required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Select Mobile Condition</mat-label>
+                                        <mat-select formControlName="typeOfMobile" (click)="ClearSel()">
+                                            <mat-option *ngFor="let mobile of mobileStatus" [value]="mobile.name">
+                                                {{ mobile.name }}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <div *ngIf="submitted && f.typeOfMobile.errors" class="invalid-feedback">
+                                        <div *ngIf="f.typeOfMobile.errors?.required">Status is required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12" *ngIf="addMobileGroup.get('typeOfMobile').value == 'Old'">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Seller Name" formControlName="sellerName"
+                                            class="" [ngClass]="{ 'is-invalid': submitted && f.sellerName.errors }">
+                                    </mat-form-field>
+                                    <div *ngIf="submitted && f.sellerName.errors" class="invalid-feedback">
+                                        <div *ngIf="f.sellerName.errors?.required">Seller Name is required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12" *ngIf="addMobileGroup.get('typeOfMobile').value == 'Old'">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Seller Mobile Number" formControlName="sellerMobile" 
+                                            class="" [ngClass]="{ 'is-invalid': submitted && f.sellerMobile.errors }" maxlength="10" minlength="10" (keypress)="numberOnly1($event)">
+                                    </mat-form-field>
+                                    <div *ngIf="submitted && f.sellerMobile.errors" class="invalid-feedback">
+                                        <div *ngIf="f.sellerMobile.errors?.required">Seller Mobile is required
+                                        </div>
+                                    </div>
+                                    <div class="error" *ngIf="addMobileGroup.get('sellerMobile').hasError('pattern') && addMobileGroup.get('sellerMobile').touched">
+                                        Please enter valid mobile number 
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12" *ngIf="addMobileGroup.get('typeOfMobile').value == 'Old'">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Seller Email" formControlName="sellerEmail"
+                                            class="" [ngClass]="{ 'is-invalid': submitted && f.sellerEmail.errors }">
+                                    </mat-form-field>
+                                    <div *ngIf="submitted && f.sellerEmail.errors" class="invalid-feedback">
+                                        <div *ngIf="f.sellerEmail.errors?.required">Seller Email is required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+                                    <div class="upload-btn-wrapper">
+                                        <button class="btn">Upload a file <img
+                                                src="./../../../../assets/images/fileUpload.png" /></button>
+                                        <input title="" type="file" (change)="getImage($event)" name="myfile" accept="image/jpeg, image/png, application/pdf"/>
+                                    </div>
+                                    <span style="font-size: 11px; color: green;">{{ name }}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="offset-md-5 col-md-7">
+                                    <button type="submit" class="submitBtn" [disabled]="!addMobileGroup.valid">Add Mobile</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

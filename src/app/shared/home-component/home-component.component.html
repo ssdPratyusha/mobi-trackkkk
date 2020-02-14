@@ -1,0 +1,128 @@
+
+<app-header-component></app-header-component>
+
+<div  class="contentPart">
+<!-- home page banner section starts -->
+<section>
+    <div class="homepageBanner">
+        <div class="homepageInner">
+            <div class="text-center">
+                <h1 class="color-white  f-poppins f-size48">Mobitrak Application</h1>
+                <h3 class="color-white  f-poppins f-size36">Download From Here</h3>
+                <div class="row p-tb40 ">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <img class="m-btm40" src="../../assets/images/applestore.png">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <img src="../../assets/images/googlestore.png">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- home page banner section ends -->
+
+<!-- About Us statrs -->
+<section class="p-tb40">
+    <div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="text-uppercase aboutTitle color-grey text-center m-btm40 f-size48 f-poppins">
+                                About Mobitrak <span class="unLine1"></span>
+                            </div>
+                </div>
+
+                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 d-block mx-auto  m-btm40">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                            <div class="bgColor">
+                                <img src='../../../assets/images/juniperphoton-ygXL31tMI0c-unsplash.png' />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                            <div class="watermarkTitle">About</div>
+                            <p class="color-grey f-size18">Lorem Ipsum is simply dummy text of the printing and typesetting
+                                industry.
+                                Lorem Ipsum has been
+                                the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                                galley
+                                of type and scrambled it to make a type specimen book. It has survived not only five
+                                centuries,
+                                but also the leap into electronic typesetting, remaining essentially unchanged. It was
+                                popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                                passages,
+                                and more recently with desktop publishing software like Aldus PageMaker including
+                                versions of
+                                Lorem Ipsum.</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About Us ends -->
+
+<!-- App Stores Section starts-->
+<section>
+    <div class="appStores">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                    <h1 class="color-fff m-btm40 f-size48 f-poppins">Hurrry! Get your Mobitrak Appication</h1>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                    <img class="appIcons" src="../../../assets/images/applestore.png" />
+                    <img class="appIcons" src="../../../assets/images/googlestore.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- App Stores Section ends -->
+
+<!-- get In touch starts -->
+<section>
+    <div>
+        <div class="getTouchMain">
+            <div class="container">
+                <div class="row">
+                    <div class="offset-lg-7 col-lg-5 offset-md-5 col-md-7 col-sm-12 col-xs-12 text-right">
+                        <div class="p-tb40">
+                            <h1 class="getInTouchTitle text-right text-uppercase m-btm40  f-size48 f-poppins">
+                                Get in Touch<span class="unLine"></span></h1>
+
+
+                            <form [formGroup]="getInTouchGroup"  autocomplete="off" (ngSubmit)="onSubmit()">
+                                <div class="form-group">
+                                    <input type="text" formControlName="name" class="form-control" placeholder="Name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" formControlName="phone" class="form-control" placeholder="Phone">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" formControlName="email" class="form-control"
+                                        placeholder="Email">
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-submit btn-block">Submit
+                                    <img src="../../../assets/images/fast-forward.png" class="text-right" />
+                                </button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- get In touch starts -->
+</div>
+
+<app-footer-component></app-footer-component>

@@ -1,0 +1,46 @@
+@import '../../shared/userComponent/user-profile-styles.scss';
+
+.userImageArea {
+    border: 1px solid #ccc;
+    width: 180px;
+    height: 180px;
+    position: relative;
+    i, img {
+        position: absolute;
+        top: 62%;
+        left: 50%;
+        height: 133px !important;
+        width: 200px !important;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        transition: .5s ease;
+        backface-visibility: hidden;
+    }
+    
+}
+
+.goBackStyles {
+    border: 1px solid $color-theme;
+    padding: 5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background: transparent linear-gradient(99deg, #01BBEE 0%, #062898 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 0px 2px 18px #0000003B;
+    color: $color-white;
+    position: absolute;
+    right: 2px;
+    top: 3px;
+}
+.goBackStyles:hover { color: #fff !important; }
+// .goBackStyles:hover, .goBackStyles:focus {
+//     background:  transparent linear-gradient(99deg, #01BBEE 0%, #062898 100%) 0% 0% no-repeat padding-box;
+//     color: $color-theme !important; 
+// }
+// .goBackStyles:hover .fa, .goBackStyles:focus .fa {
+//     color: $color-theme !important;
+
+// }
+// .userImageArea .upload-btn-wrapper { opacity: .5; }
+// .userImageArea:hover .upload-btn-wrapper { opacity: 1; }
+ 

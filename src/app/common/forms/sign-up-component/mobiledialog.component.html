@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Verify Email</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="registationForm"  autocomplete="off" >
+    <div class="">
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Otp"  formControlName="otpValue"    class="" [ngClass]="{ 'is-invalid': submitted && f.otpValue.errors }"
+        >
+  
+              <mat-error>     
+                  <div class="error"
+                    *ngIf="registationForm.get('otpValue').hasError('required') && registationForm.get('otpValue').touched">
+                    Otp is required
+                  </div>
+                  <div class="error"
+                    *ngIf="registationForm.get('otpValue').hasError('maxlength') && registationForm.get('otpValue').touched">
+             Enter 4 digit otp
+                  </div>
+                </mat-error> 
+           
+      </mat-form-field>
+  
+     
+  </div>
+  </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial [disabled]="registationForm.invalid" (click)="verifyMobile()">Verify</button>
+</mat-dialog-actions>

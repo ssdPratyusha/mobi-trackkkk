@@ -1,0 +1,113 @@
+<div class="navbarr">
+  <nav class="navbar fixed-top navbar-expand-lg ">
+    <div class="p-0">
+      <h1><img src="../../../assets/images/mobiTrackLogo.png" width="180px"/></h1>
+    </div>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fa fa-bars"></i></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav mx-auto showInDesktop">
+        <li class="nav-item">
+          <a class="nav-link">
+            <div class="has-search">
+              <span class="fa fa-search form-control-feedback"></span>
+              <input type="text" class="form-control" [ngModel]="imeiNo" #searchInput minlength="15" maxlength="16"
+                (keypress)="numberOnly($event)" placeholder="Search IMEI Number" (ngModelChange)="showDetails($event)">
+              <span class="showError">{{showError}}</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav ml-auto">
+        
+          <li class="nav-item active" *ngIf="displayLandinginfo">
+              <a class="nav-link" routerLink="/signIn"><img class="p-right10px"
+                  src="../../../assets/images/sign-in.png" />Sign In <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" *ngIf="displayLandinginfo">
+              <a class="nav-link" routerLink="/signUp"><img class="p-right10px"
+                  src="../../../assets/images/sign-up.png" />Sign Up</a>
+            </li>
+          <li class="nav-item dropdown"  *ngIf="!displayLandinginfo">
+              <a class="nav-link text-capitalize dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                  <img *ngIf="profileImage" src= "{{ userData?.profileImgPath }}" (error)="pictNotLoading($event)" class="p-right10px" width="40px" height="30px"/><i *ngIf="!profileImage" class="fa fa-user-circle-o"></i> &nbsp; {{ userData.firstName }}
+                  {{ userData.lastName }} <span class="sr-only">(current)</span></a>
+              <!-- <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Admin</a> -->
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a routerLink="/editProfile" class="dropdown-item  nav-link" style="color: black;">Edit Profile</a>
+                  <div class="dropdown-divider"></div>
+            <a class="dropdown-item nav-link" style="color: black;" (click)="logout()">Logout</a>
+              </div>
+          </li>
+      </ul>
+    </div>
+
+
+
+  </nav>
+</div>
+
+<div class="has-search showInMobile">
+  <span class="fa fa-search form-control-feedback" id="test"></span>
+  <input type="text" class="form-control" [ngModel]="imeiNo" #searchInput minlength="15" maxlength="16"
+    (keypress)="numberOnly($event)" placeholder="Search IMEI Number" (ngModelChange)="showDetails($event)">
+  <span class="showError">{{showError}}</span>
+</div>
+
+<div id="scrollBarStyle" class="searchDrop position-absolute " *ngIf="searchDrop">
+  <img src="../../../assets/images/close.png" class="close-btn pull-right p-3" (click)="clearSearchInfo()">
+  <ul class="list-none" *ngIf="imeiList.length != 0; else noData">
+    <li *ngFor="let item of imeiList">
+      <div class="d-flex flex-sm-row flex-column justify-content-around">
+        <div class="d-table">
+          <div class="d-tbCell width20">
+            <div class="d-table">
+              <div class="profile-pic d-tbCell width50px">
+                <!-- <img src="../../../assets/images/userProfile.png" width="40px"> -->
+                <i class="fa fa-user-circle-o fa-2x color-grey1"></i>
+              </div>
+              <div class="d-tbCell"><span class="f-size15 color-black text-capitalize">{{item.fullName}}</span><br>
+                <!-- <span class="f-size11">686-553-8430 x5838</span> -->
+              </div>
+            </div>
+
+          </div>
+          <!-- <div><span class="f-size14">IMEI 1</span><br><span class="f-size16">98765433 45678909</span></div> -->
+          <!-- <div><span class="f-size14">Nick Name</span><br><span class="f-size16">{{item.fullName}}</span></div> -->
+          <div class="d-tbCell width20 f-poppins">
+            <span class="f-size14 color-grey1">Make</span><br>
+            <span class="f-size16 color-black">{{item.mobileMaker}}</span>
+          </div>
+          <div class="d-tbCell width20 f-poppins">
+            <span class="f-size14 color-grey1">Model</span><br>
+            <span class="f-size16 color-black" *ngIf="item.mobileType != null; else noData1">
+              {{item.mobileType}}</span>
+            <ng-template #noData1>--</ng-template>
+          </div>
+          <div class="d-tbCell width20 f-poppins">
+            <span class="f-size14 color-grey1">Status</span><br>
+            <span
+              [ngClass]="{'green' : item.status === 'Sold', 'blue' : item.status === 'Found', 'red' : item.status === 'Lost'}"
+              class="f-size16 color-black">{{item.status}}</span>
+          </div>
+          <!-- <div><span class="f-size14">Status</span><br><label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="slider round"></span>
+                </label></div> -->
+        </div>
+      </div>
+    </li>
+
+  </ul>
+
+
+  <ng-template #noData>
+    <div class="f-size48 text-center color-grey1 f-poppins p-tb40">No Data Found</div>
+  </ng-template>
+
+</div>

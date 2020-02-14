@@ -1,0 +1,201 @@
+@import "../../../styles.scss";
+
+
+.navbar {
+  padding: 10px 30px;
+  background: linear-gradient(to right, #0536a0, #029cdc, #029cdc);
+  color: $color-white;
+  border-bottom: 1px solid $color-white;
+  .navbar-toggler {
+    color: rgba(0, 0, 0, 0.5);
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+  .navbar-nav {
+    li {
+      a { 
+        color: $color-white; 
+        cursor: pointer;
+        font-family: $poppinsLight;
+        margin-right: 30px;
+     }
+  }
+}
+}
+
+
+
+.has-search {
+  .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+  }
+
+  .form-control {
+    padding-left: 2.375rem;
+    border-radius: 2rem;
+    width: 300px;
+  }
+}
+
+
+//modal 
+.modal {
+  background: url('../../../assets/images/popupBg.png') no-repeat;
+  background-size: cover;
+  background-position: center center;
+    .close {
+      position: absolute;
+      right: 1%;
+      top: 5%;
+      background: #fff;
+      border: 1px solid #ccc;
+      opacity: 1;
+      border-radius: 15px;
+      -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+      height: 30px;
+      width: 30px;
+      font-size: 26px;
+      color: #238bcb;
+    }
+    .modal-dialog {
+      position: absolute;
+      right: 10%;
+    }
+}
+
+.popupLogo {
+   width: 100px;
+   display: block;
+   clear: both;
+}
+
+// search
+.d-table {
+  display: table;
+  width: 100%;
+  .d-tbCell { 
+    display: table-cell; 
+    vertical-align: middle;
+  }
+  .width20 { width: 20%; }
+}
+.v-middle { vertical-align: middle; }
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 18px;
+}
+.green { color: green; }
+.blue { color: blue; }
+.red { color: red; }
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.showError {
+  position: absolute;
+    top: 2px;
+    z-index: 9;
+    color: red;
+    font-size: 10px;
+    right: 15px;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 20px;
+  left: -7px;
+  bottom: 0px;
+  border: 1px solid #8e8e8e;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #7ED321;
+  border: 1px solid #8e8e8e;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #7ED321;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.f-size15 { font-size: 15px; }
+.f-size14 { font-size: 14px; }
+.f-size11 { font-size: 11px; }
+.f-size16 { font-size: 16px; }
+.searchDrop{
+  min-height: 200px;
+  max-height: 450px;
+  background-color: white;
+  z-index: 9;
+  width: 100%;
+  top: 82px;
+  box-shadow: 0px 15px 20px #00000029;
+  overflow: auto;
+  position: relative;
+  z-index: 9;
+  max-height: 350px;
+  overflow: auto;
+  .close-btn  {
+    position: absolute;
+    right: 40px;
+  }
+  .list-none { 
+    list-style: none; 
+    padding-left: 0;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    width: 90%;
+    margin: auto;
+     li {
+      margin: 10px;
+      border-bottom: 1px solid #ccc;
+      padding: 10px; 
+      .width50px { width: 50px; }
+    }
+    li:last-of-type {
+      border-bottom: 0;
+    }
+
+  }
+}
+

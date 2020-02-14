@@ -1,0 +1,53 @@
+@import '../../styles.scss';
+.mobileLink{
+    background: transparent linear-gradient(89deg, #0361B8 0%, #0361B8 36%, #02315C 100%) 0% 0% no-repeat padding-box;
+    span{
+        font-size: 48px;
+       
+        display: block;
+    }
+}
+.getInTouch{
+    background: url('../../assets/images/getInTouch.png') no-repeat padding-box;
+    height: 452px;
+    .head{
+        font-size: 48px;
+        color: #ffffff;
+        display: block;
+    }
+    .Submit-btn{
+        background: transparent linear-gradient(180deg, #038AD2 0%, #054BAC 100%) 0% 0% no-repeat padding-box;
+        border-radius: 4px;
+        opacity: 1;
+        border: none;
+        height: 35px;
+        text-align: start;
+    }
+    
+}
+.font-clr-white{
+    color: #ffffff;
+}
+.pad-top{
+    padding-top: 88px;
+}
+.margin-top-6{
+    margin-top: 6px;
+}
+.head::before{
+    content: " ";
+    height: 5px;
+    width: 70px;
+    background: transparent linear-gradient(272deg, #054CAD 0%, #028AD1 100%) 0% 0% no-repeat padding-box;
+    position: absolute;
+    top: 66px;
+    left: 240px;
+    // text-align: right;
+    border-radius: 33px;
+}
+@media (max-width:360px){
+    .head::before{
+        margin-top: 140px;
+    margin-left: 80px;
+    }
+}

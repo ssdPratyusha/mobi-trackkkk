@@ -1,0 +1,97 @@
+@import "../../../styles.scss";
+
+.homepageBanner {
+  position: relative;
+  height: 500px;
+  background: url("../../../assets/images/pre.png") 0% 0% no-repeat padding-box;
+  background-size: cover;
+  .homepageInner {
+    position: absolute;
+      top: 26%;
+      right: 10%;
+      bottom: 50%;
+      margin: auto;
+  }
+}
+
+//about us styles
+.bgColor {
+    width: 55%;
+    min-height: 455px;
+    background: transparent linear-gradient(180deg, #0383CD 0%, #0453B0 100%) 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    opacity: 1;
+    position: relative;
+    height: 400px;
+
+      img {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 30%;
+        bottom: 50%;
+        margin: auto;
+      }
+}
+
+
+
+.appStores {
+    background: transparent linear-gradient(89deg, #0361B8 0%, #0361B8 36%, #02315C 100%) 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    opacity: 1;
+    padding: 60px 0px;
+
+      .appIcons { 
+        height: 42px;
+        padding: 0 20px;
+        margin: 5px auto;
+      }
+}
+// Get in touch styles
+.getTouchMain {
+  background: url('../../../assets/images/getInTouch.png');
+  background-size:cover;
+  background-blend-mode: multiply;
+  height: 450px;
+  position: relative;
+  // $font-family-brand;
+    .getInTouchTitle {
+      letter-spacing: 2px;
+      color: $color-white;
+      opacity: 1;
+      position: relative;
+
+        
+    }
+}
+.unLine {
+  position: absolute;
+  top: 52px;
+  right: 0;
+  width: 70px;
+  height: 6px;
+  background: transparent linear-gradient(272deg, #054CAD 0%, #028AD1 100%) 0% 0% no-repeat padding-box;
+  border-radius: 33px;
+  -webkit-border-radius: 33px;
+  -moz-border-radius: 33px;
+  opacity: 1;
+}
+.aboutTitle {
+  position: relative;
+  display: table;
+    margin: auto;
+  .unLine1 {
+    position: absolute;
+    right: 0;
+    width: 80px;
+    height: 6px;
+    background: transparent linear-gradient(272deg, #054CAD 0%, #028AD1 100%) 0% 0% no-repeat padding-box;
+    top: 62px;
+    border-radius: 33px;
+    -webkit-border-radius: 33px;
+    -moz-border-radius: 33px;
+    opacity: 1;
+  }
+}
+

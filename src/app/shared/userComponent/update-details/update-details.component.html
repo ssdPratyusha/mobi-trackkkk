@@ -1,0 +1,71 @@
+<div id="updateUserDetails">
+<h3 class="text-center f-poppins color-theme">Update Mobile Details</h3>
+<hr />
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="tabsContent">
+                    <div class="">
+
+                        <form [formGroup]="updateMobileGroup"  autocomplete="off" (ngSubmit)="updateDetails()">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="p-tb40">
+                                        <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="IMEI 1" formControlName="imei1" class=""
+                                            [ngClass]="{ 'is-invalid': submitted && f.imei1.errors }">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="IMEI 2" formControlName="imei2" class=""
+                                            [ngClass]="{ 'is-invalid': submitted && f.imei2.errors }">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Nickname" formControlName="nickName" class=""
+                                            [ngClass]="{ 'is-invalid': submitted && f.nickName.errors }">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Select Mobile Model</mat-label>
+                                        <mat-select formControlName="mobileMakeId">
+                                            <mat-option *ngFor="let mobile of mobileModalsList" [value]="mobile.makeId">
+                                                {{ mobile.mobileMaker }}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Mobile Type" formControlName="mobileType" class=""
+                                            [ngClass]="{ 'is-invalid': submitted && f.mobileType.errors }">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Status" formControlName="status" class=""
+                                            [ngClass]="{ 'is-invalid': submitted && f.status.errors }">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 d-block" style="margin-left: 21%;">
+                                    <button type="submit" class="submitBtn ">Update Details</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</div>

@@ -1,0 +1,30 @@
+@import "../../../styles.scss";
+// @import "../../../assets/css/fonts.css";
+footer {
+    background: #001F41 0% 0% no-repeat padding-box;
+}
+.socialIcons {
+    float: right;
+    list-style: none;
+    li {
+    float: left;
+    padding: 0 10px;
+    font-size: 22px;
+}
+}
+.breadcrumb { 
+    background-color: transparent; 
+    li {
+        a{
+            color: rgba(255, 255, 255, 0.62);
+            letter-spacing: -0.23px;
+            // font-family: $ralewayLight;
+        }
+    }
+}
+.hrColor { 
+    border-top: 1px solid rgba(255, 255, 255, 0.62);
+    width: 98.5%;
+    margin: auto;
+ }
+

@@ -1,0 +1,40 @@
+@import '../../../styles.scss';
+.tabsContent {
+    border: 1px solid #e0e0e0;
+    box-shadow: 1px -2px 10px #ccc;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+
+  .btn {
+    border: 1px dashed gray;
+    color: gray;
+    background-color: white;
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 23px;
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid #0374C4;
+    img {
+        float: right;
+        width: 20px;
+    }
+  }
+}
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
